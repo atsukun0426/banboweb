@@ -1,0 +1,106 @@
+<!doctype html>
+<!-- ヘッダー -->
+<header class="py-4">
+  <div class="container text-center">
+    <h1>バンボ!</h1>
+  </div>
+</header>
+<!--ナビゲーション-->
+<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+  <!--サブコンポーネント-->
+  <div class="container">
+    <a class="navbar-brand" href="#">バンボ！</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-content"
+            aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!--ナビゲーション-->
+    <div class="collapse navbar-collapse" id="navbar-content">
+      <!--ナビゲーションメニュー-->
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Top<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Sign in</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<main>
+<!--メインビジュアル-->
+  <div class="py-4">
+    <div class="container">
+    <!--カルーセル外枠-->
+      <div id="main_visual" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#main_visual" data-slide-to="0" class="active"></li>
+          <li data-target="#main_visual" data-slide-to="1"></li>
+          <li data-target="#main_visual" data-slide-to="2"></li>
+        </ol>
+        <!--カルーセル内枠-->
+        <div class="carousel-inner">
+        　<!--スライド01-->
+          <div class="carousel-item active">
+            <%= image_tag("/live-phot01.jpg", :alt => "ライブ写真01") %>
+            <!--img class="img-fluid" src="/public/ライブ写真01.jpg" alt="ライブ写真1"-->
+          </div>
+          <!--スライド02-->
+          <div class="carousel-item">
+            <%= image_tag("/live-phot02.jpg", :alt => "ライブ写真02") %>
+          </div>
+          <!--スライド03-->
+          <div class="carousel-item">
+            <%= image_tag("/live-phot03.jpg", :alt => "ライブ写真03") %>
+          </div>
+        </div>
+        <!--コントローラー-->
+        <a class="carousel-control-prev" href="#main_visual" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">前に戻る</span>
+        </a>
+        <a class="carousel-control-next" href="#main_visual" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">次に進む</span>
+        </a>
+      </div>
+      <!--About-->
+      <div class="py-4 bg-light">
+        <section id="about">
+          <div class="container">
+            <!--上段-->
+            <div class="row mb-4">
+              <div class="col-md-8 mb-3">
+                <h3>バンボ!について</h3>
+                <p>バンボ！は「より良いライブ、盛り上がりを」をテーマに出演者と主催者が円滑に、ライブ、イベントを行えることを目的としたサービスです。
+                   出演者と主催者はチャットを通して、コミュニケーションを行え、出演希望、出演者募集を簡単に行えます。随時新しい機能を追加していき、より良いサービスに
+                   していきますので、まずは下記よりご登録をお願いします。
+                </p>
+                <p>
+                  出演者でのご登録、主催者でのご登録を用意しております。
+                  ご登録の際はお間違えの無いようご注意ください。
+                </p>
+                <a href="#" class="btn btn-info">出演者での登録はこちら</a>
+                <a href="#" class="btn btn-info">主催者での登録はこちら</a>
+              </div>
+              <div class="col-md-4">
+                <%= image_tag("/live-phot02.jpg", :alt => "ライブ写真02") %>
+              </div>
+            </div>
+            <!--下段-->
+            <div class="row">
+              <div class="col-md-6">
+              </div>
+              <div class="col-md-6">
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</main>
