@@ -32,6 +32,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem "rspec-rails", "~> 4.0"
+  gem "rubocop-airbnb", "~> 3.0"
 end
 
 group :development do
@@ -55,3 +56,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "devise", "~> 4.7.3"
+gem "jaro_winkler", "~> 1.5.4"
