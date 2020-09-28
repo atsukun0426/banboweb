@@ -1,0 +1,2 @@
+module Banbo::HomeHelper
+end
