@@ -27,6 +27,9 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+/config/initializers/constants.rb
+/config/initializers/devise.rb
+/config/environments/development.rb
 
 /public/packs
 /public/packs-test

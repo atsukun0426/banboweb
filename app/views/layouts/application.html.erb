@@ -10,6 +10,37 @@
   </head>
 
   <body>
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+        <!--サブコンポーネント-->
+        <div class="container">
+          <a class="navbar-brand" href="#">バンボ！</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-content"
+                  aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <!--ナビゲーション-->
+          <div class="collapse navbar-collapse" id="navbar-content">
+            <!--ナビゲーションメニュー-->
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Top<span class="sr-only">(current)</span></a>
+              </li>
+              <% if user_signed_in? %>
+                <li class="nav-item">
+                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                </li>
+              <% else %>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">新規登録</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">ログイン</a>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
