@@ -64,3 +64,5 @@ gem "devise-i18n-views", "~> 0.3.7"
 gem "rails-i18n", "~> 6.0"
 
 gem "devise-bootstrap-views", "~> 1.1"
+
+gem "omniauth-twitter", "~> 1.4"
