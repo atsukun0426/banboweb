@@ -1,0 +1,21 @@
+<h2>投稿検索</h2>
+<%= link_to '投稿する', new_post_path, {class: 'btn btn-primary withripple' }%>
+<%= link_to '自分の投稿一覧へ', show_posts_path, {class: 'btn btn-primary withripple' }%>
+<% @posts.each do |post| %>
+    <div class="contents row" >
+      <div class="name3">投稿者:<%= link_to post.user.name, user_path(post.user), method: :get %></div>
+      <div class="name2">投稿日時:<%= post.created_at.strftime("%Y-%m-%d %H:%M:%S") %></div>
+      <div class="name2"><%= link_to '詳細', post_path(post), method: :get %></div>
+      <% if user_signed_in? && current_user.id == post.user_id %>
+      <div class="name2">
+       <%= link_to '編集', edit_post_path(post), method: :get %>
+      </div>
+      <div class="name2">
+       <%= link_to '削除', "/posts/#{post.id}", method: :delete %>
+      </div>
+       <% end %>
+      <div class="name3"><%= simple_format(post.text) %></div>
+    </div>
+<% end %>
+  <!---%= paginate(@posts) %--->
+</div>

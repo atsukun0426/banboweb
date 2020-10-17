@@ -66,3 +66,5 @@ gem "rails-i18n", "~> 6.0"
 gem "devise-bootstrap-views", "~> 1.1"
 
 gem "omniauth-twitter", "~> 1.4"
+
+gem "kaminari", "~> 1.2"
