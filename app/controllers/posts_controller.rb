@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   def index
     @user = current_user
-    @posts = Post.all.order(created_at: :desc)
+    @posts = Post.all.order(created_at: :desc).page(params[:page]).per(20)
     #@search = Post.search(params[:q])
     #@posts = @search.result.includes(:user).order("created_at DESC").page(params[:page]).per(20)
   end
