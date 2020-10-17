@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   get "show_posts" => "posts#show_posts"
   resources :posts do
-    resources :applies, only: [:create, :destroy]
+    resources :comments, only: [:create, :destroy]
   end
 end

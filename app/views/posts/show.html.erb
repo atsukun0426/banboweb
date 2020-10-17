@@ -1,0 +1,33 @@
+<h2>投稿</h2>
+<div class="contents row" >
+  <div class="name3">投稿者:<%= link_to @post.user.name, user_path(@post.user), method: :get %></div>
+    <div class="name2">投稿日時:<%= @post.created_at.strftime("%Y-%m-%d %H:%M:%S") %></div>
+      <% if user_signed_in? && current_user.id == @post.user_id %>
+        <div class="name2">
+          <%= link_to '編集', edit_post_path(@post), method: :get %>
+        </div>
+        <div class="name2">
+          <%= link_to '削除', "/posts/#{@post.id}", method: :delete %>
+        </div>
+      <% end %>
+      <div class="name3"><%= simple_format(@post.text) %></div>
+</div>
+
+<div class="contents row" >
+<h2>コメント一覧</h2>
+<% if @comments %>
+  <% @comments.each do |comment| %>
+    <div class="name2">投稿者:<%= link_to comment.user.name, "/users/#{comment.user_id}" %>&nbsp;&nbsp;投稿日時:<%= comment.created_at.strftime("%Y-%m-%d %H:%M:%S") %></div>
+    <div class="name2"><%= comment.text %></div>
+  <% end %>
+<% end %>
+<br/>
+<% if current_user %>
+  <%= form_with(model: [@post, @comment], local: true) do |f| %>
+    <%= f.text_area :text, class: "form-control", rows: 5 %>
+    <%= button_tag type: "submit", class: "btn btn-success float-right mt-1" do %>
+      <i class="far fa-comments"></i> コメントする
+    <% end %>
+  <% end %>
+<% end %>
+</div>
