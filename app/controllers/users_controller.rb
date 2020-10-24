@@ -2,7 +2,6 @@ class UsersController < ApplicationController
   before_action :sign_in_required, only: [:show]
   def show
     @user = current_user
-    #@user = User.find(params[:id])
   end
 
   def users_posts

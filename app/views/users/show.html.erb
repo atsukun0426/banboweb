@@ -1,10 +1,30 @@
-<h1>about me</h1>
-
-<h3>ユーザー名</h3>
-<%= @user.name %>
-<h3>メールアドレス</h3>
-<%= @user.email %>
-<h3>プロフィール</h3>
-<%= @user.description %>
-<%=link_to "プロフィール編集", edit_user_registration_path %>
-<%=link_to "投稿する", new_post_path %>
+<div class="container-fluid">
+  <div class="container">
+    <div class="row">
+      <div class="col-8">
+        <br>
+        <h2>ユーザー情報</h2>
+        <br>
+        <br>
+        <hr>
+        <p>画像無し</p>
+        <p>名前：<%= @user.name %>さん（26歳）</p>
+        <h3>プロフィール</h3>
+        <p><%= @user.description %></p>
+        <p class="btn btn-success"><%=link_to "プロフィール編集", edit_user_registration_path %></p>
+        <p><a href="/users/89/edit" class="btn btn-success">ユーザー情報を編集する</a></p>
+        <p class="btn btn-success"><%=link_to "投稿する", new_post_path %></p>
+      </div>
+      <div class="col-4">
+        <br>
+        <h2>チャット一覧</h2>
+        <br>
+        <br>
+        <hr>
+        <p><a href="/rooms/17"><strong>新規チャット</strong></a></p>
+        <hr>
+         <a href="/rooms" class="btn btn-info">チャット一覧を見る</a>
+      </div>
+    </div>
+  </div>
+</div>
