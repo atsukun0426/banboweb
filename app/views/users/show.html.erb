@@ -5,14 +5,12 @@
         <br>
         <h2>ユーザー情報</h2>
         <br>
-        <br>
         <hr>
         <p>画像無し</p>
-        <p>名前：<%= @user.name %>さん（26歳）</p>
+        <p>名前：<%= @user.name %></p>
         <h3>プロフィール</h3>
         <p><%= @user.description %></p>
         <p class="btn btn-success"><%=link_to "プロフィール編集", edit_user_registration_path %></p>
-        <p><a href="/users/89/edit" class="btn btn-success">ユーザー情報を編集する</a></p>
         <p class="btn btn-success"><%=link_to "投稿する", new_post_path %></p>
       </div>
       <div class="col-4">
