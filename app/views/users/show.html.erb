@@ -6,7 +6,11 @@
         <h2>ユーザー情報</h2>
         <br>
         <hr>
-        <p><%= image_tag @user.image.to_s %></p>
+        <div class="col-md-2">
+          <div class="thumbnail">
+            <%= image_tag @user.image.url(:thumb)%>
+          </div>
+        </div>
         <p>名前：<%= @user.name %></p>
         <h3>プロフィール</h3>
         <p><%= @user.description %></p>

@@ -70,3 +70,5 @@ gem "omniauth-twitter", "~> 1.4"
 gem "kaminari", "~> 1.2"
 
 gem "carrierwave", "~> 2.1"
+
+gem "mini_magick", "~> 4.10"

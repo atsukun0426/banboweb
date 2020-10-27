@@ -312,6 +312,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   kaminari (~> 1.2)
   listen (~> 3.2)
+  mini_magick (~> 4.10)
   omniauth-twitter (~> 1.4)
   pg (>= 0.18, < 2.0)
   puma (~> 4.1)
