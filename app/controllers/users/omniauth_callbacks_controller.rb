@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-
   def failure
     redirect_to root_path
   end
@@ -16,7 +15,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         session['devise.omniauth_data'] = {
           email: data['info']['email'],
           provider: data['provider'],
-          uid: data['uid']
+          uid: data['uid'],
         }
       end
       redirect_to new_user_registration_url

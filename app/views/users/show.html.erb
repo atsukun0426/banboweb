@@ -13,7 +13,16 @@
         <p class="btn btn-success"><%=link_to "プロフィール編集", edit_user_registration_path %></p>
         <p class="btn btn-success"><%=link_to "投稿する", new_post_path %></p>
       </div>
-      <div class="col-4">
+      <div class="col-md-8">
+        <% if @user.posts.any? %>
+        <h3>投稿 (<%= @user.posts.count %>)</h3>
+        <ol class="posts">
+          <%= render @posts %>
+        </ol>
+          <%= paginate(@posts) %>
+        <% end %>
+  </div>
+      <div class="col-2">
         <br>
         <h2>チャット一覧</h2>
         <br>

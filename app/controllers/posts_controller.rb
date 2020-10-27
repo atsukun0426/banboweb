@@ -2,15 +2,23 @@ class PostsController < ApplicationController
   def index
     @user = current_user
     @posts = Post.all.order(created_at: :desc).page(params[:page]).per(20)
-    #@search = Post.search(params[:q])
-    #@posts = @search.result.includes(:user).order("created_at DESC").page(params[:page]).per(20)
+    # @search = Post.search(params[:q])
+    # @posts = @search.result.includes(:user).order("created_at DESC").page(params[:page]).per(20)
   end
 
   def new
+    @post = Post.new
   end
 
   def create
-    Post.create(text: post_params[:text], user_id: current_user.id)
+    @post = current_user.posts.build(post_params)
+    if @post.save
+      flash[:success] = "投稿が完了しました!"
+      redirect_to user_path(id: current_user.id)
+    else
+      render 'posts/new'
+    end
+    #Post.create(text: post_params[:text], user_id: current_user.id)
   end
 
   def destroy
@@ -33,13 +41,9 @@ class PostsController < ApplicationController
     @comment = Comment.new
   end
 
-  def show_posts
-    @user = current_user
-    @posts = Post.where(user_id: @user.id).all.order("created_at DESC").page(params[:page]).per(20)
-  end
-
   private
-    def post_params
-      params.permit(:text)
-    end
+
+  def post_params
+    params.require(:post).permit(:content)
+  end
 end

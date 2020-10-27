@@ -4,7 +4,6 @@
     <title>Banboweb</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -34,7 +33,7 @@
                   <a class="nav-link" href="#">新規登録</a>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "ログイン", new_user_session_path, class: 'post' %>
+                  <%= link_to "ログイン", new_user_session_path, class: 'nav-link' %>
                   <a class="nav-link" href="#">ログイン</a>
                 </li>
               <% end %>

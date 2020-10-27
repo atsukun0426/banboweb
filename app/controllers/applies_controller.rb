@@ -5,7 +5,8 @@ class AppliesController < ApplicationController
   end
 
   private
-    def apply_params
-      params.permit(:text, :post_id)
-    end
+
+  def apply_params
+    params.permit(:text, :post_id)
+  end
 end
