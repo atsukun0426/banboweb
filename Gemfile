@@ -68,3 +68,5 @@ gem "devise-bootstrap-views", "~> 1.1"
 gem "omniauth-twitter", "~> 1.4"
 
 gem "kaminari", "~> 1.2"
+
+gem "carrierwave", "~> 2.1"

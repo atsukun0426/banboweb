@@ -6,7 +6,7 @@
         <h2>ユーザー情報</h2>
         <br>
         <hr>
-        <p>画像無し</p>
+        <p><%= image_tag @user.image.to_s %></p>
         <p>名前：<%= @user.name %></p>
         <h3>プロフィール</h3>
         <p><%= @user.description %></p>
