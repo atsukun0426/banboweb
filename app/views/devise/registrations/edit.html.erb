@@ -3,17 +3,22 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :image %>
     <%= f.file_field :image %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
+    <%= f.label :organizer, "イベント主催者として利用する" %>
+ 　　<%= f.check_box :organizer, autofocus: true, class: "edit-control" %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :name %><br />
     <%= f.text_field :name, autofocus: true %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
@@ -22,13 +27,13 @@
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :description %><br />
     <%= f.text_area :description, autofocus: true %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "変更" %>
   </div>
 <% end %>
 

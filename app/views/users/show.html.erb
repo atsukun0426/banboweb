@@ -1,40 +1,29 @@
 <div class="container-fluid">
   <div class="container">
     <div class="row">
-      <div class="col-8">
-        <br>
-        <h2>ユーザー情報</h2>
-        <br>
-        <hr>
+      <div class="col-12">
         <div class="col-md-2">
           <div class="thumbnail">
             <%= image_tag @user.image.url(:thumb)%>
           </div>
         </div>
-        <p>名前：<%= @user.name %></p>
-        <h3>プロフィール</h3>
+        <h4><%= @user.name %></h4>
         <p><%= @user.description %></p>
-        <p class="btn btn-success"><%=link_to "プロフィール編集", edit_user_registration_path %></p>
-        <p class="btn btn-success"><%=link_to "投稿する", new_post_path %></p>
+        <p class="btn btn-success"><%=link_to "プロフィール編集", edit_user_registration_path, class: "nav-link" %></p>
+        <p class="btn btn-success"><%=link_to "投稿する", new_post_path, class: "nav-link" %></p>
       </div>
       <div class="col-md-8">
         <% if @user.posts.any? %>
-        <h3>投稿 (<%= @user.posts.count %>)</h3>
+          <%if @user.organizer %>
+            <h3>参加者募集</h3>
+        　<% else %>
+            <h4>活動投稿 (<%= @user.posts.count %>)</h4>
+          <% end %>
         <ol class="posts">
           <%= render @posts %>
         </ol>
           <%= paginate(@posts) %>
         <% end %>
-  </div>
-      <div class="col-2">
-        <br>
-        <h2>チャット一覧</h2>
-        <br>
-        <br>
-        <hr>
-        <p><a href="/rooms/17"><strong>新規チャット</strong></a></p>
-        <hr>
-         <a href="/rooms" class="btn btn-info">チャット一覧を見る</a>
       </div>
     </div>
   </div>

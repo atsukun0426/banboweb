@@ -18,7 +18,7 @@ class PostsController < ApplicationController
     else
       render 'posts/new'
     end
-    #Post.create(text: post_params[:text], user_id: current_user.id)
+    # Post.create(text: post_params[:text], user_id: current_user.id)
   end
 
   def destroy
