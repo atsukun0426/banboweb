@@ -1,4 +1,8 @@
 class RecruitmentsController < ApplicationController
+  def index
+    @recruitments = Recruitment.all.order(created_at: :desc).page(params[:page]).per(20)
+  end
+
   def new
     @recruitment = Recruitment.new
   end

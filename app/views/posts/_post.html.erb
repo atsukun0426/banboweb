@@ -1,7 +1,6 @@
-<li>
-  <span class="taile"><%=link_to post.title, post %></span>
-  <span class="content"><%= post.content %></span>
-  <span class="timestamp">
-    <%= time_ago_in_words(post.created_at) %>
-  </span>
-</li>
+<ul class="list-group list-group-flush">
+  <%=link_to post.title, post, class: "list-group-item"%>
+  <div class="d-flex w-100 justify-content-between">
+    <small><%= time_ago_in_words(post.created_at) %></small>
+  </div>
+</ul>
