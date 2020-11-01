@@ -7,28 +7,26 @@
           <div class="thumbnail">
             <%= image_tag @user.image.url(:thumb), calss: "img-thumbnail"%>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-8">
             <h4><%= @user.name %></h4>
             <p><%=@user.description %></p>
           </div>
+          <div class="py-4">
+            <p class="btn btn-success"><%=link_to "プロフィール編集", edit_user_registration_path, class: "nav-link" %></p>
+            <p class="btn btn-success"><%=link_to "投稿する", new_post_path, class: "nav-link" %></p>
+          </div>
         </div>
 
-
-        <p class="btn btn-success"><%=link_to "プロフィール編集", edit_user_registration_path, class: "nav-link" %></p>
-        <p class="btn btn-success"><%=link_to "投稿する", new_post_path, class: "nav-link" %></p>
       </div>
-      <div class="col-md-8">
+      <div class="row">
+        <div class="col-12">
         <% if @user.posts.any? %>
-          <%if @user.organizer %>
-            <h3>参加者募集</h3>
-        　<% else %>
-            <h4>活動投稿 (<%= @user.posts.count %>)</h4>
-          <% end %>
         <ol class="posts">
           <%= render @posts %>
         </ol>
           <%= paginate(@posts) %>
         <% end %>
+        </div>
       </div>
     </div>
   </section>
