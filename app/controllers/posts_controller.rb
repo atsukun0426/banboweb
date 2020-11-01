@@ -2,8 +2,6 @@ class PostsController < ApplicationController
   def index
     @user = current_user
     @posts = Post.all.order(created_at: :desc).page(params[:page]).per(20)
-    # @search = Post.search(params[:q])
-    # @posts = @search.result.includes(:user).order("created_at DESC").page(params[:page]).per(20)
   end
 
   def new
@@ -18,7 +16,6 @@ class PostsController < ApplicationController
     else
       render 'posts/new'
     end
-    # Post.create(text: post_params[:text], user_id: current_user.id)
   end
 
   def destroy
@@ -43,7 +40,7 @@ class PostsController < ApplicationController
 
   private
 
-  def post_params
-    params.require(:post).permit(:title, :content)
-  end
+    def post_params
+      params.require(:post).permit(:title, :content)
+    end
 end

@@ -1,0 +1,15 @@
+<h2>募集内容</h2>
+<div class="contents row" >
+  <div class="name3">投稿者:<%= link_to @recruitmentuser.name, user_path(@recruitment.user), method: :get %></div>
+    <% if user_signed_in? && current_user.id == @recruitment.user_id %>
+      <div class="name2">
+        <%= link_to '編集', edit_post_path(@recruitment), method: :get %>
+      </div>
+      <div class="name2">
+        <%= link_to '削除', "/posts/#{@recruitment.id}", method: :delete %>
+      </div>
+    <% end %>
+    <div class="name3"><%= simple_format(@recruitment.title) %></div>
+</div>
+
+<%=render '/comments/comment_form' %>
