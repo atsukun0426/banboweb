@@ -1,0 +1,4 @@
+<%= form_with(model: [@post, @comment], local: true) do |f| %>
+  <%= f.text_field :content %>
+  <%= f.submit "応募する", class: "btn btn-primary" %>
+<% end %>
