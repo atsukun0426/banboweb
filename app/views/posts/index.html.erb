@@ -14,7 +14,6 @@
        <%= link_to '削除', "/posts/#{post.id}", method: :delete %>
       </div>
        <% end %>
-      <div class="name3"><%= simple_format(post.text) %></div>
     </div>
 <% end %>
   <%= paginate(@posts) %>

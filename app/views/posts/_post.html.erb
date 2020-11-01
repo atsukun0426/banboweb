@@ -1,6 +1,5 @@
 <li>
-  <span class="user"><%= link_to post.user.name, post.user %></span>
-  <span class="taile"><%= post.title %></span>
+  <span class="taile"><%=link_to post.title, post %></span>
   <span class="content"><%= post.content %></span>
   <span class="timestamp">
     <%= time_ago_in_words(post.created_at) %>

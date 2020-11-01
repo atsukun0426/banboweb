@@ -2,7 +2,6 @@
   <section id="user">
     <div class="container">
       <div class="col-12">
-
         <div class="row">
           <div class="thumbnail">
             <%= image_tag @user.image.url(:thumb), calss: "img-thumbnail"%>
@@ -12,11 +11,15 @@
             <p><%=@user.description %></p>
           </div>
           <div class="py-4">
-            <p class="btn btn-success"><%=link_to "プロフィール編集", edit_user_registration_path, class: "nav-link" %></p>
-            <p class="btn btn-success"><%=link_to "投稿する", new_post_path, class: "nav-link" %></p>
+            <% if current_user.id == @user.id %>
+              <p class="btn btn-success"><%=link_to "プロフィール編集", edit_user_registration_path, class: "nav-link" %></p>
+              <p class="btn btn-success"><%=link_to "投稿する", new_post_path, class: "nav-link" %></p>
+              <% if current_user.organizer %>
+                <p class="btn btn-success"><%=link_to "出演募集する", class: "nav-link" %></p>
+              <% end %>
+            <% end %>
           </div>
         </div>
-
       </div>
       <div class="row">
         <div class="col-12">
@@ -27,7 +30,7 @@
           <%= paginate(@posts) %>
         <% end %>
         </div>
-      </div>
+    </div>
     </div>
   </section>
 </div>
