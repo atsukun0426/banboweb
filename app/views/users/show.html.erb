@@ -1,14 +1,19 @@
-<div class="container-fluid">
-  <div class="container">
-    <div class="row">
+<div class="py-4">
+  <section id="user">
+    <div class="container">
       <div class="col-12">
-        <div class="col-md-2">
+
+        <div class="row">
           <div class="thumbnail">
-            <%= image_tag @user.image.url(:thumb)%>
+            <%= image_tag @user.image.url(:thumb), calss: "img-thumbnail"%>
+          </div>
+          <div class="col-md-4">
+            <h4><%= @user.name %></h4>
+            <p><%=@user.description %></p>
           </div>
         </div>
-        <h4><%= @user.name %></h4>
-        <p><%= @user.description %></p>
+
+
         <p class="btn btn-success"><%=link_to "プロフィール編集", edit_user_registration_path, class: "nav-link" %></p>
         <p class="btn btn-success"><%=link_to "投稿する", new_post_path, class: "nav-link" %></p>
       </div>
@@ -26,5 +31,5 @@
         <% end %>
       </div>
     </div>
-  </div>
+  </section>
 </div>
