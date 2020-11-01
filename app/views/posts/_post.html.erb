@@ -1,6 +1,8 @@
-<ul class="list-group list-group-flush">
-  <%=link_to post.title, post, class: "list-group-item"%>
-  <div class="d-flex w-100 justify-content-between">
+<li class="media mb-4">
+  <div class="media-body">
+    <hr>
+    <h5><%=link_to post.title, post %></h5>
+    <p><%= post.content %></p>
     <small><%= time_ago_in_words(post.created_at) %></small>
   </div>
-</ul>
+</li>

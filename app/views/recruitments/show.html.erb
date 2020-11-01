@@ -1,12 +1,18 @@
 <h2>募集内容</h2>
-<div class="contents row" >
-  <div class="name3">投稿者:<%= link_to @recruitment.user.name, user_path(@recruitment.user), method: :get %></div>
-    <% if user_signed_in? && current_user.id == @recruitment.user_id %>
-      <div class="name2">
-        <%= link_to '編集', edit_post_path(@recruitment), method: :get %>
-      </div>
-      <div class="name2">
-        <%= link_to '削除', "/posts/#{@recruitment.id}", method: :delete %>
-      </div>
-    <% end %>
+<div class="card border-primary mb-3 w-75">
+  <div class="card-body">
+    <h4 class="card-title"><%= @recruitment.title %></h4>
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item">開催日:<%= @recruitment.date %></li>
+    <li class="list-group-item">出演料:¥<%= @recruitment.price %></li>
+  </ul>
+  <div class="card-body">
+    <p class="card-text"><%= @recruitment.content %></p>
+  </div>
+  <div class="card-body">
+    <div class="btn btn-primary">
+      <p>応募</p>
+    </div>
+  </div>
 </div>
