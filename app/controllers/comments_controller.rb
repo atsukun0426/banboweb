@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     @comment_post = @comment.post
     if @comment.save
-      #@comment_post.create_notification_comment!(current_user, @comment.id)
+      # @comment_post.create_notification_comment!(current_user, @comment.id)
       redirect_back(fallback_location: root_path)
     else
       redirect_back(fallback_location: root_path)
@@ -13,7 +13,8 @@ class CommentsController < ApplicationController
   end
 
   private
-    def comment_params
-      params.require(:comment).permit(:content)
-    end
+
+  def comment_params
+    params.require(:comment).permit(:content)
+  end
 end

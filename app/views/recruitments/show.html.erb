@@ -10,12 +10,24 @@
   <div class="card-body">
     <p class="card-text"><%= @recruitment.content %></p>
   </div>
-  <div class="card-body">
-    <aside class="col-md-4">
-      <h3>応募フォーム</h3>
-        <section class="request_form">
-          <%= render '/requests/request_form' %>
-        </section>
-    </aside>
-  </div>
+  <% unless @recruitment.user.id == current_user.id %>
+    <div class="card-body">
+      <aside class="col-md-4">
+        <h3>応募フォーム</h3>
+          <section class="request_form">
+            <%= render '/requests/request_form' %>
+          </section>
+      </aside>
+    </div>
+　<% else %>
+    <div class="card-body">
+      <h3>応募者一覧</h3>
+      <ul class="list-group">
+      <% @requests.each do |request| %>
+        <li class="list-group-item"><a href="/users/<%= request.user.id %>"><%= request.user.name %></a></li>
+        <!---li class="list-group-item">応募者: <%= request.name %></li--->
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 </div>

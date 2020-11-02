@@ -1,0 +1,7 @@
+<h2>応募者一覧</h2>
+<% @recruitment.requests.each do |request| %>
+    <p>タイトル</p>
+    <p><%= request.name %></p>
+    <p>内容</p>
+    <p><%= request.group_name %></p>
+<% end %>

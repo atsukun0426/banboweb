@@ -33,11 +33,13 @@ class RecruitmentsController < ApplicationController
 
   def show
     @recruitment = Recruitment.find(params[:id])
+    @requests = @recruitment.requests
     @request = Request.new
   end
 
   private
-    def recruitment_params
-      params.require(:recruitment).permit(:title, :date, :price, :content)
-    end
+
+  def recruitment_params
+    params.require(:recruitment).permit(:title, :date, :price, :content)
+  end
 end
