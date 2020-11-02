@@ -33,6 +33,7 @@ class RecruitmentsController < ApplicationController
 
   def show
     @recruitment = Recruitment.find(params[:id])
+    @request = Request.new
   end
 
   private

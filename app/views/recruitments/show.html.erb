@@ -11,8 +11,11 @@
     <p class="card-text"><%= @recruitment.content %></p>
   </div>
   <div class="card-body">
-    <div class="btn btn-primary">
-      <p>応募</p>
-    </div>
+    <aside class="col-md-4">
+      <h3>応募フォーム</h3>
+        <section class="request_form">
+          <%= render '/requests/request_form' %>
+        </section>
+    </aside>
   </div>
 </div>
