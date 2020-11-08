@@ -3,6 +3,8 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :recruitments, dependent: :destroy
   has_many :comments
+  has_many :user_rooms
+  has_many :chats
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
 
