@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
   before_action :sign_in_required, only: [:show]
+  def index
+    @users = User.all
+  end
+
   def show
-    @user = current_user
+    @user = User.find(params[:id])
     @posts = @user.posts.page(params[:page]).per(20)
   end
 

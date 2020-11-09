@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     passwords: 'users/passwords',
     registrations: 'users/registrations', # omniauth_callbacks: "users/omniauth_callbacks"
   }
-  resources :users, only: [:show]
+  resources :users, only: [:index, :show]
   get "show_posts" => "posts#show_posts"
   resources :posts do
     resources :comments, only: [:create, :destroy]
