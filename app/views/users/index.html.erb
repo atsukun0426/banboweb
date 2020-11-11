@@ -1,5 +1,23 @@
-<h1>ユーザー一覧</h1>
-<% @users.each do |user| %>
-  <a href="/users/<%= user.id %>"><%= user.email %></a>
-  <hr>
-<% end %>
+<div class="container main_body">
+  <main data-turbolinks="false">
+    <div class="col-md-8 col-md-offset-2">
+      <h2>ユーザー一覧</h2>
+    </div>
+    <div class="row">
+      <% @users.each do |user| %>
+        <div class="col-md-4 col-xs-4">
+          <% if user.image.present?%>
+            <%= image_tag user.image.url(:thumb), calss: "img-thumbnail"%>
+          <% else %>
+            <%= image_tag("/images.jpg", :alt => "画像準備中", class: "img-fluid") %>
+          <% end %>
+        <div class="row">
+          <div class="col-md-12 col-xs-12 text-center">
+            <a href="/users/<%= user.id %>"><%= user.name %></a>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </main>
+</div>

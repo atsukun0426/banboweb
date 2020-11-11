@@ -1,8 +1,15 @@
-<h2>コメント一覧</h2>
-<% @comments.each do |c| %>
-<div>
-  <a href="/users/<%= @post.user.id %>"><%= c.user.email %></a>
-  <%= c.content %>
-  <hr>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+  <h2>コメント一覧</h2>
+  <% @comments.each do |c| %>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th><a href="/users/<%= @post.user.id %>"><%= c.user.email %></a></th>
+          <th><%= c.content %></th>
+        </tr>
+      </thead>
+    </table>
+  <% end %>
+  </div>
 </div>
-<% end %>
