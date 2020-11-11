@@ -1,43 +1,55 @@
-<h2>編集<%= resource_name.to_s.humanize %></h2>
+<div class="container main_body">
+  <main data-turbolinks="false">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <h2>編集<%= resource_name.to_s.humanize %></h2>
+      </div>
+    </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-4">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="form-group">
-    <%= f.label :image, "プロフィール画像"%>
-    <%= f.file_field :image, class: "form-control-file" %>
-  </div>
+          <div class="form-group">
+            <%= f.label :image, "プロフィール画像"%>
+            <%= f.file_field :image, class: "form-control-file" %>
+          </div>
 
-  <div class="form-group">
-    <%= f.label :organizer, "イベント主催者として利用する" %>
- 　　<%= f.check_box :organizer, autofocus: true, class: "edit-control" %>
-  </div>
+          <div class="form-group">
+            <%= f.label :organizer, "イベント主催者として利用する" %>
+ 　　        <%= f.check_box :organizer, autofocus: true, class: "edit-control" %>
+          </div>
 
-  <div class="form-group">
-    <%= f.label :name , "ユーザーネーム" %><br/>
-    <%= f.text_field :name, autofocus: true, class: "form-control" %>
-  </div>
+          <div class="form-group">
+            <%= f.label :name , "ユーザーネーム" %><br/>
+            <%= f.text_field :name, autofocus: true, class: "form-control" %>
+          </div>
 
-  <div class="form-group">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
-  </div>
+          <div class="form-group">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+          </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+          <% end %>
 
-  <div class="form-group">
-    <%= f.label :description, "自己紹介" %><br/>
-    <%= f.text_area :description, autofocus: true, class: "form-control" %>
-  </div>
+          <div class="form-group">
+            <%= f.label :description, "自己紹介" %><br/>
+            <%= f.text_area :description, autofocus: true, class: "form-control" %>
+          </div>
 
-  <div class="actions">
-    <%= f.submit "変更", class: "btn btn-primary" %>
-  </div>
-<% end %>
+          <div class="actions">
+            <%= f.submit "変更", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
 
 <div class="py-3">
   <%= button_to "アカウント削除", registration_path(resource_name), data: { confirm: "本当に削除してよろしいですか?" }, method: :delete %></p>
 </div>
 <%= link_to "戻る", :back %>
+</main>
+</div>
