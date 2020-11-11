@@ -3,7 +3,13 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     passwords: 'users/passwords',
-    registrations: 'users/registrations', # omniauth_callbacks: "users/omniauth_callbacks"
+    registrations: 'users/registrations' # omniauth_callbacks: "users/omniauth_callbacks"
+  }
+  devise_for :organizers, controllers: {
+    sessions: 'organizers/sessions',
+    passwords: 'organizers/passwords',
+    registrations: 'organizers/registrations'
+
   }
   resources :users, only: [:index, :show]
   get "show_posts" => "posts#show_posts"
