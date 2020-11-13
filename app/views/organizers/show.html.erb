@@ -1,1 +1,35 @@
 <h4><%= @organizer.name %></h4>
+<div class="container main_body">
+  <div class="row">
+    <div class="thumbnail">
+      <% if @organizer.image.present?%>
+        <%= image_tag @organizer.image.url(:thumb), calss: "img-thumbnail"%>
+      <% else %>
+        <%= image_tag("/images.jpg", :alt => "画像準備中", class: "img-fluid") %>
+      <% end %>
+    </div>
+    <div class="col-md-8">
+      <h4><%= @organizer.name %></h4>
+      <p><%= @organizer.description %></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-10 py-4">
+      <% if current_user.id == @organizer.id %>
+        <p class="btn btn-success ml2"><%=link_to "プロフィール編集", edit_organizer_registration_path, class: "nav-link" %></p>
+        <p class="btn btn-success ml2"><%=link_to "投稿する", new_post_path, class: "nav-link" %></p>
+        <% if current_user %>
+          <p class="btn btn-success ml2"><%=link_to "出演募集する", new_recruitment_path, class: "nav-link" %></p>
+          <p class="btn btn-success ml2"><%=link_to "募集一覧", recruitments_path, class: "nav-link" %></p>
+        <% end %>
+      <% end %>
+      <% if current_user != @organizer %>
+        <%= link_to 'chatを始める', chat_path(@organizer.id)%>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+    </div>
+  </div>
+</div>
