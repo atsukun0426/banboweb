@@ -17,14 +17,15 @@
         <div class="row">
           <div class="col-md-10 py-4">
             <% if current_user.id == @user.id %>
-              <p class="btn btn-success ml2"><%=link_to "プロフィール編集", edit_user_registration_path, class: "nav-link" %></p>
-              <p class="btn btn-success ml2"><%=link_to "投稿する", new_post_path, class: "nav-link" %></p>
+              <a href="<%= edit_user_registration_path %>" class="btn btn-info">プロフィール編集</a>
+              <a href="<%= new_post_path %>" class="btn btn-info">投稿する</a>
               <% if current_user.organizer %>
-                <p class="btn btn-success ml2"><%=link_to "出演募集する", new_recruitment_path, class: "nav-link" %></p>
-                <p class="btn btn-success ml2"><%=link_to "募集一覧", recruitments_path, class: "nav-link" %></p>
+                <a href="<%= new_recruitment_path %>" class="btn btn-info">出演募集する</a>
+                <a href="<%= recruitments_path %>" class="btn btn-info">募集一覧</a>
               <% end %>
             <% end %>
             <% if current_user != @user %>
+              <a href="<%= chat_path(@user.id) %>" class="btn btn-info">チャットを始める</a>
               <%= link_to 'chatを始める', chat_path(@user.id)%>
             <% end %>
           </div>
