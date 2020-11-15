@@ -11,8 +11,11 @@
         </div>
         <div class="col-md-8">
           <h4><%= @user.name %></h4>
-            <p><%=@user.description %></p>
-          </div>
+          <p><%=@user.description %></p>
+          <audio src= "<%= "#{@user.music}" %>" controls="">
+            <a src="<%= "#{@user.music}" %>">ダウンロード</a>
+          </audio>
+        </div>
         </div>
         <div class="row">
           <div class="col-md-10 py-4">
