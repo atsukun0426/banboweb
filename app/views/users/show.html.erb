@@ -11,6 +11,7 @@
         </div>
         <div class="col-md-8">
           <h4><%= @user.name %></h4>
+          <p>活動場所　<%= @user.prefecture.name %></p>
           <p><%=@user.description %></p>
           <audio src= "<%= "#{@user.music}" %>" controls="">
             <a src="<%= "#{@user.music}" %>">ダウンロード</a>

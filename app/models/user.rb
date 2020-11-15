@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :prefecture
   mount_uploader :image, ImagesUploader
   mount_uploader :music, AudiofileUploader
   has_many :posts, dependent: :destroy
