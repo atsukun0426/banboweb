@@ -3,6 +3,27 @@
     <div class="col-md-8 col-md-offset-2">
       <h2>ユーザー一覧</h2>
     </div>
+    <div>
+      <p>ユーザー検索</p>
+      <div class="search-form">
+        <%= form_with(scope: :search, url: users_path, method: :get, local: true) do |f| %>
+          <div class="field">
+            <%= f.label(:name, User.human_attribute_name(:name)) %>
+            <%= f.text_field :name, value: @search_params[:name] %>
+          </div>
+
+          <div class="field">
+            <%= f.label(:prefecture_id, User.human_attribute_name(:prefecture_id)) %>
+            <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, selected: @search_params[:prefecture_id], include_blank: t('helpers.select.include_blank')) %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit("検索") %>
+          </div>
+        <% end %>
+      </div>
+
+    </div>
     <div class="row">
       <% @users.each do |user| %>
         <div class="col-md-4 col-xs-4">
