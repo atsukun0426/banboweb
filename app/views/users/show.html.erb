@@ -11,7 +11,9 @@
         </div>
         <div class="col-md-8">
           <h4><%= @user.name %></h4>
-          <p>活動場所　<%= @user.prefecture.name %></p>
+          <% if @user.prefecture_id.present? %>
+            <p>活動場所:<%= @user.prefecture.name %></p>
+          <% end %>
           <p><%=@user.description %></p>
           <audio src= "<%= "#{@user.music}" %>" controls="">
             <a src="<%= "#{@user.music}" %>">ダウンロード</a>
