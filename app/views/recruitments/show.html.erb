@@ -4,7 +4,9 @@
     <h4 class="card-title"><%= @recruitment.title %></h4>
   </div>
   <ul class="list-group">
-    <li class="list-group-item">活動場所:<%= @recruitment.prefecture.name %></li>
+    <% if @recruitment.prefecture.present? %>
+      <li class="list-group-item">活動場所:<%= @recruitment.prefecture.name %></li>
+    <% end %>
     <li class="list-group-item">開催日:<%= @recruitment.date %></li>
     <li class="list-group-item">出演料:¥<%= @recruitment.price %></li>
   </ul>

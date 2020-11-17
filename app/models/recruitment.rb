@@ -7,4 +7,9 @@ class Recruitment < ApplicationRecord
   default_scope -> { order(created_at: :desc) }
   validates :user_id, presence: true
   validates :content, presence: true, length: { maximum: 500 }
+
+  def self.search(search)
+    return Recruitment.all unless search
+    Recruitment.where(['title LIKE ?', "%#{search}%"])
+  end
 end

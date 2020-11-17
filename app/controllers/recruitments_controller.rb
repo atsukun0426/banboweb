@@ -1,6 +1,9 @@
 class RecruitmentsController < ApplicationController
   def index
-    @recruitments = Recruitment.all.order(created_at: :desc).page(params[:page]).per(20)
+    @recruitments = Recruitment.page(params[:page]).per(20).search(params[:search])
+    #@search_params = recruitment_search_params
+    #@recruitments = Recruitment.search(@search_params)
+    #@recruitments = Recruitment.all.order(created_at: :desc).page(params[:page]).per(20)
   end
 
   def new
@@ -41,5 +44,9 @@ class RecruitmentsController < ApplicationController
 
   def recruitment_params
     params.require(:recruitment).permit(:title, :prefecture_id, :date, :price, :content)
+  end
+
+  def recruitment_search_params
+    params.fetch(:search, {}).permit(:title)
   end
 end
