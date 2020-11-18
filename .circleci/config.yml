@@ -11,6 +11,7 @@ jobs:
       - image: circleci/postgres:11.9
         environment:
           POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: 'password'
           POSTGRES_DB: banboweb_test
     working_directory: ~/repo
     steps:
@@ -42,6 +43,7 @@ jobs:
       - image: circleci/postgres:11.9
         environment:
           POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: 'password'
           POSTGRES_DB: banboweb_test
     working_directory: ~/repo
     steps:
