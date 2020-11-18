@@ -6,12 +6,12 @@ jobs:
         environment:
           BUNDLER_VERSION: 2.1.4
           RAILS_ENV: test
-          POSTGRES_PASSWORD: 'password'
+          #POSTGRES_PASSWORD: 'password'
           POSTGRES_HOST: 127.0.0.1
       - image: circleci/postgres:11.9
         environment:
           POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: 'password'
+          POSTGRES_HOST_AUTH_METHOD: 'trust'
           POSTGRES_DB: banboweb_test
     working_directory: ~/repo
     steps:
@@ -43,7 +43,8 @@ jobs:
       - image: circleci/postgres:11.9
         environment:
           POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: 'password'
+          #POSTGRES_PASSWORD: 'password'
+          POSTGRES_HOST_AUTH_METHOD: 'trust'
           POSTGRES_DB: banboweb_test
     working_directory: ~/repo
     steps:
