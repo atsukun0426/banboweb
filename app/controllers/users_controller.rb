@@ -4,8 +4,8 @@ class UsersController < ApplicationController
   def index
     @search_params = user_search_params
     @users = User.search(@search_params).includes(:prefecture)
-    #@users = User.all
-    #@users = User.where(activated: true).page(params[:page]).search(params[:search])
+    # @users = User.all
+    # @users = User.where(activated: true).page(params[:page]).search(params[:search])
   end
 
   def show
@@ -14,6 +14,7 @@ class UsersController < ApplicationController
   end
 
   private
+
   def user_search_params
     params.fetch(:search, {}).permit(:name, :prefecture_id)
   end

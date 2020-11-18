@@ -1,6 +1,13 @@
 inherit_from:
   - .rubocop_airbnb.yml
 
+TargetRubyVersion: 2.7.1
+
+Rails:
+  Enabled: true
+
+LineLength:
+  Max: 130
 #以下にはrubocopで検証したくないフォルダを指定する
 AllCops:
   Exclude:

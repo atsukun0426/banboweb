@@ -2,9 +2,9 @@ class RecruitmentsController < ApplicationController
   before_action :sign_in_required
   def index
     @recruitments = Recruitment.page(params[:page]).per(20).search(params[:search])
-    #@search_params = recruitment_search_params
-    #@recruitments = Recruitment.search(@search_params)
-    #@recruitments = Recruitment.all.order(created_at: :desc).page(params[:page]).per(20)
+    # @search_params = recruitment_search_params
+    # @recruitments = Recruitment.search(@search_params)
+    # @recruitments = Recruitment.all.order(created_at: :desc).page(params[:page]).per(20)
   end
 
   def new

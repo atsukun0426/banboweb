@@ -16,18 +16,18 @@ class User < ApplicationRecord
   scope :search, -> (search_params) do
     return if search_params.blank?
 
-    name_like(search_params[:name])
-      .prefecture_id_is(search_params[:prefecture_id])
+    name_like(search_params[:name]).
+      prefecture_id_is(search_params[:prefecture_id])
   end
 
   scope :name_like, -> (name) { where('name LIKE ?', "%#{name}%") if name.present? }
   scope :prefecture_id_is, -> (prefecture_id) { where(prefecture_id: prefecture_id) if prefecture_id.present? }
-  #ここでのself.はUser.を意味する
+  # ここでのself.はUser.を意味する
   def self.search(search)
     if search
-      where(['name LIKE ?', "%#{search}%"]) #検索とnameの部分一致を表示。User.は省略
+      where(['name LIKE ?', "%#{search}%"]) # 検索とnameの部分一致を表示。User.は省略
     else
-      all #全て表示。User.は省略
+      all # 全て表示。User.は省略
     end
   end
 

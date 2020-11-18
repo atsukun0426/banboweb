@@ -6,6 +6,6 @@ class OrganizersController < ApplicationController
 
   def show
     @organizer = Organizer.find(params[:id])
-    #@posts = @user.posts.page(params[:page]).per(20)
+    # @posts = @user.posts.page(params[:page]).per(20)
   end
 end
