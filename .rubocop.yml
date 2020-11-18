@@ -7,7 +7,7 @@ Rails:
   Enabled: true
 
 LineLength:
-  Max: 130
+  Max: 140
 #以下にはrubocopで検証したくないフォルダを指定する
 AllCops:
   Exclude:
