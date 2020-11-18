@@ -1,4 +1,5 @@
 class RequestsController < ApplicationController
+  before_action :sign_in_required
   def index
     @recruitment = Recruitment.find(params[:id])
   end

@@ -66,13 +66,6 @@
               </div>
             </div>
         　　<hr>
- 　　　　　　<h2>募集一覧</h2>
-   　　　　　　<% @recruitments = Recruitment.all.order("created_at DESC") %>
-   　　　　　　　　<% @recruitments.each do |recruitment| %>
-                  <div class="list-group">
-                    <%= link_to recruitment.title, recruitment, class: "list-group-item list-group-item-action" %>
-                  </div>
-           　　<% end %>
             <!--下段-->
             <div class="row">
               <div class="col-md-6">

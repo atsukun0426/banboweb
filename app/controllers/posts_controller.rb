@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :sign_in_required
   def index
     @user = current_user
     @posts = Post.all.order(created_at: :desc).page(params[:page]).per(20)

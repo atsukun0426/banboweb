@@ -1,4 +1,5 @@
 class RecruitmentsController < ApplicationController
+  before_action :sign_in_required
   def index
     @recruitments = Recruitment.page(params[:page]).per(20).search(params[:search])
     #@search_params = recruitment_search_params
