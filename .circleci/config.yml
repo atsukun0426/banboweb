@@ -6,7 +6,7 @@ jobs:
         environment:
           BUNDLER_VERSION: 2.1.4
           RAILS_ENV: test
-          POSTGRES_PASSWORD: password
+          POSTGRES_PASSWORD: ""
           POSTGRES_HOST: 127.0.0.1
       - image: circleci/postgres:11.9
         environment:
@@ -38,7 +38,7 @@ jobs:
           BUNDLER_VERSION: 2.1.4
           RAILS_ENV: test
           POSTGRES_HOST: 127.0.0.1
-          POSTGRES_PASSWORD: password
+          POSTGRES_PASSWORD: ""
       - image: circleci/postgres:11.9
         environment:
           POSTGRES_USER: postgres
